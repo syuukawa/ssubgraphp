@@ -1,16 +1,16 @@
 import { BorrowAndTrade, CreateOrder } from '../generated/Borrow/Borrow'
 import { Borrow, Order } from '../generated/schema'
 
-export function handleBorrowAndTrade(event: BorrowAndTrade): void {
-  let borrow = new Borrow(event.transaction.hash.toHexString())
-  borrow.timestamp = event.params.timestamp
-  borrow.user = event.params.user
-  borrow.tokenId = event.params.tokenId
-  borrow.price = event.params.price
-  borrow.amount = event.params.amount
-  borrow.slippage = event.params.slippage
-  borrow.save()
-}
+// export function handleBorrowAndTrade(event: BorrowAndTrade): void {
+//   let borrow = new Borrow(event.transaction.hash.toHexString())
+//   borrow.timestamp = event.params.timestamp
+//   borrow.user = event.params.user
+//   borrow.tokenId = event.params.tokenId
+//   borrow.price = event.params.price
+//   borrow.amount = event.params.amount
+//   borrow.slippage = event.params.slippage
+//   borrow.save()
+// }
 
 // 创建订单的Handle处理
 export function handleCreateOrder(event: CreateOrder): void {
