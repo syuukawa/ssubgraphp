@@ -1,5 +1,5 @@
 specVersion: 0.0.2
-description: Gravatar for Ethereum
+description: subgraph for trade
 repository: https://github.com/syuukawa/ssubgraphp
 schema:
   file: ./schema.graphql
@@ -15,14 +15,11 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        # - Borrow
         - Order
       abis:
         - name: Borrow
           file: ./abis/Borrow.json
       eventHandlers:
-        # - event: BorrowAndTrade(uint256,uint256,uint256,uint256,uint256,address)
-        #   handler: handleBorrowAndTrade
         - event: CreateOrder(address,string,string,uint256,uint256,string)
           handler: handleCreateOrder
       file: ./src/mapping.ts

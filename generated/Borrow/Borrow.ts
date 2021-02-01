@@ -10,44 +10,6 @@ import {
   BigInt
 } from "@graphprotocol/graph-ts";
 
-export class BorrowAndTrade extends ethereum.Event {
-  get params(): BorrowAndTrade__Params {
-    return new BorrowAndTrade__Params(this);
-  }
-}
-
-export class BorrowAndTrade__Params {
-  _event: BorrowAndTrade;
-
-  constructor(event: BorrowAndTrade) {
-    this._event = event;
-  }
-
-  get tokenId(): BigInt {
-    return this._event.parameters[0].value.toBigInt();
-  }
-
-  get price(): BigInt {
-    return this._event.parameters[1].value.toBigInt();
-  }
-
-  get amount(): BigInt {
-    return this._event.parameters[2].value.toBigInt();
-  }
-
-  get slippage(): BigInt {
-    return this._event.parameters[3].value.toBigInt();
-  }
-
-  get timestamp(): BigInt {
-    return this._event.parameters[4].value.toBigInt();
-  }
-
-  get user(): Address {
-    return this._event.parameters[5].value.toAddress();
-  }
-}
-
 export class CreateOrder extends ethereum.Event {
   get params(): CreateOrder__Params {
     return new CreateOrder__Params(this);
@@ -92,46 +54,20 @@ export class Borrow extends ethereum.SmartContract {
   }
 }
 
-export class BorrowCall extends ethereum.Call {
-  get inputs(): BorrowCall__Inputs {
-    return new BorrowCall__Inputs(this);
+export class CreateOrderCall extends ethereum.Call {
+  get inputs(): CreateOrderCall__Inputs {
+    return new CreateOrderCall__Inputs(this);
   }
 
-  get outputs(): BorrowCall__Outputs {
-    return new BorrowCall__Outputs(this);
-  }
-}
-
-export class BorrowCall__Inputs {
-  _call: BorrowCall;
-
-  constructor(call: BorrowCall) {
-    this._call = call;
+  get outputs(): CreateOrderCall__Outputs {
+    return new CreateOrderCall__Outputs(this);
   }
 }
 
-export class BorrowCall__Outputs {
-  _call: BorrowCall;
+export class CreateOrderCall__Inputs {
+  _call: CreateOrderCall;
 
-  constructor(call: BorrowCall) {
-    this._call = call;
-  }
-}
-
-export class OrderCall extends ethereum.Call {
-  get inputs(): OrderCall__Inputs {
-    return new OrderCall__Inputs(this);
-  }
-
-  get outputs(): OrderCall__Outputs {
-    return new OrderCall__Outputs(this);
-  }
-}
-
-export class OrderCall__Inputs {
-  _call: OrderCall;
-
-  constructor(call: OrderCall) {
+  constructor(call: CreateOrderCall) {
     this._call = call;
   }
 
@@ -160,10 +96,10 @@ export class OrderCall__Inputs {
   }
 }
 
-export class OrderCall__Outputs {
-  _call: OrderCall;
+export class CreateOrderCall__Outputs {
+  _call: CreateOrderCall;
 
-  constructor(call: OrderCall) {
+  constructor(call: CreateOrderCall) {
     this._call = call;
   }
 }
