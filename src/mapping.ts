@@ -15,10 +15,8 @@ import { Borrow, Order } from '../generated/schema'
 // 创建订单的Handle处理
 export function handleCreateOrder(event: CreateOrder): void {
     let order = new Order(event.transaction.hash.toHexString())
-    // let tokenParis = event.params.tokenPairs
-    // order.tokenPair0 = tokenParis[0]
-    // order.tokenPair1 = tokenParis[1]
-
+    
+    order.tokenPair = event.params.tokenPairs
     order.orderType  = event.params.orderType.toString()
     order.direction = event.params.direction.toString()
     order.pay = event.params.pay

@@ -61,8 +61,8 @@ export class CreateOrder__Params {
     this._event = event;
   }
 
-  get tokenPairs(): Array<Address> {
-    return this._event.parameters[0].value.toAddressArray();
+  get tokenPairs(): Address {
+    return this._event.parameters[0].value.toAddress();
   }
 
   get orderType(): string {
@@ -135,8 +135,8 @@ export class OrderCall__Inputs {
     this._call = call;
   }
 
-  get tokenPairs(): Array<Address> {
-    return this._call.inputValues[0].value.toAddressArray();
+  get tokenPairs(): Address {
+    return this._call.inputValues[0].value.toAddress();
   }
 
   get orderType(): string {

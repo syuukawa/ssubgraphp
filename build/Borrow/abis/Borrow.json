@@ -1,5 +1,14 @@
 [
   {
+    "constant": false,
+    "inputs": [],
+    "name": "borrow",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -42,7 +51,7 @@
       {
         "indexed": false,
         "name": "tokenPairs",
-        "type": "address[]"
+        "type": "address"
       },
       {
         "indexed": false,
@@ -75,19 +84,10 @@
   },
   {
     "constant": false,
-    "inputs": [],
-    "name": "borrow",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
     "inputs": [
       {
         "name": "tokenPairs",
-        "type": "address[]"
+        "type": "address"
       },
       {
         "name": "orderType",

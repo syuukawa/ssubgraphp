@@ -127,22 +127,13 @@ export class Order extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get tokenPair0(): Bytes {
-    let value = this.get("tokenPair0");
+  get tokenPair(): Bytes {
+    let value = this.get("tokenPair");
     return value.toBytes();
   }
 
-  set tokenPair0(value: Bytes) {
-    this.set("tokenPair0", Value.fromBytes(value));
-  }
-
-  get tokenPair1(): Bytes {
-    let value = this.get("tokenPair1");
-    return value.toBytes();
-  }
-
-  set tokenPair1(value: Bytes) {
-    this.set("tokenPair1", Value.fromBytes(value));
+  set tokenPair(value: Bytes) {
+    this.set("tokenPair", Value.fromBytes(value));
   }
 
   get orderType(): string {

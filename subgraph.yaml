@@ -8,7 +8,7 @@ dataSources:
     name: Borrow
     network: ropsten
     source:
-      address: '0x212bc23f9d88008d88ea827f21d3369b65342305'
+      address: '0x610767794feffb9e715a9bf6562c94aff3ddd7ea'
       abi: Borrow
     mapping:
       kind: ethereum/events
@@ -23,6 +23,6 @@ dataSources:
       eventHandlers:
         # - event: BorrowAndTrade(uint256,uint256,uint256,uint256,uint256,address)
         #   handler: handleBorrowAndTrade
-        - event: CreateOrder(address[],string,string,uint256,uint256,string)
+        - event: CreateOrder(address,string,string,uint256,uint256,string)
           handler: handleCreateOrder
       file: ./src/mapping.ts

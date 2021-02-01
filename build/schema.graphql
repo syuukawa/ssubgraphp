@@ -13,8 +13,7 @@ type Borrow @entity {
 # Create Order
 type Order @entity {
   id: ID!
-  tokenPair0: Bytes!
-  tokenPair1: Bytes!
+  tokenPair: Bytes!
   orderType: String!
   direction: String!
   pay: BigInt!
