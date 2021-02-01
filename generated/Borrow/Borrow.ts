@@ -10,6 +10,44 @@ import {
   BigInt
 } from "@graphprotocol/graph-ts";
 
+export class BorrowAndTrade extends ethereum.Event {
+  get params(): BorrowAndTrade__Params {
+    return new BorrowAndTrade__Params(this);
+  }
+}
+
+export class BorrowAndTrade__Params {
+  _event: BorrowAndTrade;
+
+  constructor(event: BorrowAndTrade) {
+    this._event = event;
+  }
+
+  get tokenId(): BigInt {
+    return this._event.parameters[0].value.toBigInt();
+  }
+
+  get price(): BigInt {
+    return this._event.parameters[1].value.toBigInt();
+  }
+
+  get amount(): BigInt {
+    return this._event.parameters[2].value.toBigInt();
+  }
+
+  get slippage(): BigInt {
+    return this._event.parameters[3].value.toBigInt();
+  }
+
+  get timestamp(): BigInt {
+    return this._event.parameters[4].value.toBigInt();
+  }
+
+  get user(): Address {
+    return this._event.parameters[5].value.toAddress();
+  }
+}
+
 export class CreateOrder extends ethereum.Event {
   get params(): CreateOrder__Params {
     return new CreateOrder__Params(this);
@@ -51,6 +89,32 @@ export class CreateOrder__Params {
 export class Borrow extends ethereum.SmartContract {
   static bind(address: Address): Borrow {
     return new Borrow("Borrow", address);
+  }
+}
+
+export class BorrowCall extends ethereum.Call {
+  get inputs(): BorrowCall__Inputs {
+    return new BorrowCall__Inputs(this);
+  }
+
+  get outputs(): BorrowCall__Outputs {
+    return new BorrowCall__Outputs(this);
+  }
+}
+
+export class BorrowCall__Inputs {
+  _call: BorrowCall;
+
+  constructor(call: BorrowCall) {
+    this._call = call;
+  }
+}
+
+export class BorrowCall__Outputs {
+  _call: BorrowCall;
+
+  constructor(call: BorrowCall) {
+    this._call = call;
   }
 }
 
