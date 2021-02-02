@@ -8,12 +8,14 @@ dataSources:
     name: Borrow
     network: ropsten
     source:
-      address: '0xbc6f09762368d76c80d17f76ddb40d779e771482'
+      address: '0x455f76069c239f6dedbc0255f2734d07773d9973'
       abi: Borrow
+      startBlock: 9578675
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
+      file: ./src/mapping.ts      
       entities:
         - Order
         - Borrow
@@ -21,12 +23,7 @@ dataSources:
         - name: Borrow
           file: ./abis/Borrow.json
       eventHandlers:
-        - event: CreateOrder(address,string,string,uint256,uint256,string)
+        - event: CreateOrder(address[],string,string,uint256,uint256,string)
           handler: handleCreateOrder
         - event: BorrowAndTrade(uint256,uint256,uint256,uint256,uint256,address)
-          handler: handleBorrowAndTrade          
-        # - event: NewGravatar(uint256,address,string,string)
-        #   handler: handleNewGravatar
-        # - event: UpdatedGravatar(uint256,address,string,string)
-        #   handler: handleUpdatedGravatar          
-      file: ./src/mapping.ts
+          handler: handleBorrowAndTrade      

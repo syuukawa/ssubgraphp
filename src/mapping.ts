@@ -15,7 +15,9 @@ export function handleBorrowAndTrade(event: BorrowAndTrade): void {
 // 创建订单的Handle处理
 export function handleCreateOrder(event: CreateOrder): void {
     let order = new Order(event.transaction.hash.toHexString())
-    order.tokenPair = event.params.tokenPairs
+    let tokenPirs = event.params.tokenPairs
+    order.tokenPair0 = tokenPirs[0]
+    order.tokenPair1 = tokenPirs[1]
     order.orderType  = event.params.orderType
     order.direction = event.params.direction
     order.pay = event.params.pay

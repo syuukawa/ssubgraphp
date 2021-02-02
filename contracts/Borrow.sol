@@ -7,13 +7,13 @@ contract Borrow {
 
     //event Order(address[] tokenPairs, string orderType, string direction, uint256 pay, uint256 borrow, uint256 interest, string status, uint256 timestamp, address user);
 
-    event CreateOrder(address tokenPairs, string orderType, string direction, uint256 pay, uint256 borrow, string status);
+    event CreateOrder(address[] tokenPairs, string orderType, string direction, uint256 pay, uint256 borrow, string status);
         
     function borrow () external { 
         emit BorrowAndTrade(1, 10, 2*10**18, 2, now, msg.sender); 
     } 
 
-    function createOrder (address tokenPairs, string orderType, string direction, uint256 pay, uint256 borrow, string status) external { 
+    function createOrder (address[] tokenPairs, string orderType, string direction, uint256 pay, uint256 borrow, string status) external { 
         
         //InternalCompilerError: Stack too deep, try removing local variables.
         //参数太多异常
